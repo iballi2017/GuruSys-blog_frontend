@@ -14,6 +14,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class RegisterComponent {
   model: any = new User('', '');
 
+  constructor(){}
+
   onSubmit(data: NgForm) {
     console.log('data: ', data.value);
   }
