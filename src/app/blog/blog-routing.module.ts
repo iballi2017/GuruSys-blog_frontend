@@ -3,25 +3,30 @@ import { RouterModule, Routes } from '@angular/router';
 import { BlogComponent } from './blog.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { UpdatePostComponent } from './update-post/update-post.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 const routes: Routes = [
   {
     path: '',
     component: BlogComponent,
-    children:[
+    children: [
       {
-        path: "",
-        component: PostListComponent
+        path: '',
+        component: PostListComponent,
       },
       {
-        path: "posts",
-        component: PostListComponent
+        path: 'posts',
+        component: PostListComponent,
       },
       {
-        path: "update/:postId",
-        component: UpdatePostComponent
-      }
-    ]
+        path: ':postId',
+        component: PostDetailsComponent,
+      },
+      {
+        path: 'update/:postId',
+        component: UpdatePostComponent,
+      },
+    ],
   },
 ];
 
