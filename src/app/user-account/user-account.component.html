@@ -14,7 +14,7 @@
                 <a [routerLink]="['/blog']" routerLinkActive="router-link-active">Stories</a>
             </li>
             <li class="w-full px-4 py-2 rounded-b-lg">
-                <a href="" class="text-red-400 hover:text-red-500">Logout</a>
+                <a (click)="_authSvc.logoutUser()" class="text-red-400 hover:text-red-500">Logout</a>
             </li>
         </ul>
         

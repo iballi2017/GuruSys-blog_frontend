@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+
 label {
     &.required {
         display: flex;
