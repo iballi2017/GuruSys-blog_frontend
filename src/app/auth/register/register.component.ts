@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { CustomControlInputComponent } from '../../shared/custom-control-input/custom-control-input.component';
-import { User } from '../../models/classes/user';
+import { User } from '../../models/classes/user/user';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { BadInputError } from '../../common/bad-input-error';

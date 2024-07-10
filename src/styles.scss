@@ -4,17 +4,17 @@
 @tailwind utilities;
 
 // regular style toast
-@import 'ngx-toastr/toastr';
+@import "ngx-toastr/toastr";
 
 
 label {
-    &.required {
-        display: flex;
-        gap: 2px;
-        &:after {
-            content: "*";
-            color: red;
-            display: block;
-        }
+  &.required {
+    display: flex;
+    gap: 2px;
+    &:after {
+      content: "*";
+      color: red;
+      display: block;
     }
+  }
 }

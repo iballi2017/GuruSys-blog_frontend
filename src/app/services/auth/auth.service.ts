@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { DataService } from '../data/data.service';
 import { environment } from '../../../environments/environment.development';
-import { User } from '../../models/classes/user';
+import { User } from '../../models/classes/user/user';
 import { map } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
 import { Router } from '@angular/router';

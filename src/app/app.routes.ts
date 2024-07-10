@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'user-account',
-    canActivate:[authGuard],
+    // canActivate:[authGuard],
     loadChildren: () =>
       import('./user-account/user-account.module').then(
         (m) => m.UserAccountModule
@@ -23,8 +23,13 @@ export const routes: Routes = [
   },
   {
     path: 'blog',
-    canActivate:[authGuard],
+    // canActivate:[authGuard],
     loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
+  },
+  {
+    path: 'posts',
+    // canActivate:[authGuard],
+    loadChildren: () => import('./post/post.module').then((m) => m.PostModule),
   },
   {
     path: '**',

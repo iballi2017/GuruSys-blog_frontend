@@ -1,26 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlogComponent } from './blog.component';
+import { PostComponent } from './post.component';
 import { PostListComponent } from './post-list/post-list.component';
-import { PostDetailsComponent } from './post-details/post-details.component';
+import { AddPostComponent } from './add-post/add-post.component';
+import { UpdatePostComponent } from './update-post/update-post.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: BlogComponent,
+    component: PostComponent,
     children: [
       {
         path: '',
         component: PostListComponent,
       },
       {
-        path: 'posts',
-        component: PostListComponent,
+        path: 'add',
+        component: AddPostComponent,
       },
       {
         path: ':postId',
-        component: PostDetailsComponent,
-      }
+        component: UpdatePostComponent,
+      },
     ],
   },
 ];
@@ -29,4 +30,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class BlogRoutingModule {}
+export class PostRoutingModule {}

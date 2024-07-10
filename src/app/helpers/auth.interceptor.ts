@@ -18,12 +18,14 @@ import { inject } from '@angular/core';
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const authService: any = inject(AuthService);
   const accessToken: any = authService.getAccessToken();
+  console.log("accessToken: ", accessToken)
 
   const newReq = req.clone({
     setHeaders: { Authorization: `Bearer ${accessToken}` },
   });
   return next(newReq).pipe(
     catchError((error: any) => {
+      console.log('error: ', error);
       if (error) {
         return handle401Error(req, next, authService);
       }
