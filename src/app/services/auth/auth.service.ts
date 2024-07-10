@@ -74,7 +74,6 @@ export class AuthService extends DataService {
 
     let decoded: any = jwtDecode(JSON.stringify(token));
     let user = decoded.userInfo;
-    // console.log('user: ', user);
     return user;
   }
 
@@ -93,7 +92,7 @@ export class AuthService extends DataService {
 
     let decoded: any = jwtDecode(JSON.stringify(token));
     let user = decoded.userInfo;
-    let isEditor: number[] = user.roles.includes(role);
+    let isEditor: boolean = user.roles.includes(role);
     return isEditor;
   }
 
