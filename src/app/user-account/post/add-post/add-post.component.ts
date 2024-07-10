@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
-import { CustomControlInputComponent } from '../../shared/custom-control-input/custom-control-input.component';
+import { CustomControlInputComponent } from '../../../shared/custom-control-input/custom-control-input.component';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from '../../../services/auth/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { BadInputError } from '../../common/bad-input-error';
-import { AppError } from '../../common/app-error';
-import { Post } from '../../models/classes/post/post';
+import { BadInputError } from '../../../common/bad-input-error';
+import { AppError } from '../../../common/app-error';
+import { Post } from '../../../models/classes/post/post';
 import { EditorComponent, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-add-post',
   standalone: true,
-  imports: [FormsModule, CustomControlInputComponent, EditorComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    CustomControlInputComponent,
+    EditorComponent,
+  ],
   providers: [
     { provide: TINYMCE_SCRIPT_SRC, useValue: 'tinymce/tinymce.min.js' },
   ],
@@ -20,9 +26,20 @@ import { EditorComponent, TINYMCE_SCRIPT_SRC } from '@tinymce/tinymce-angular';
   styleUrl: './add-post.component.scss',
 })
 export class AddPostComponent {
-  model: any = new Post('', '');
+  model: any = new Post('', '', []);
   isLoading: boolean = false;
-
+  postCategoryList: any[] = [
+    {
+      title: 'desc 1',
+      id: '1',
+      selected: false,
+    },
+    {
+      title: 'desc 2',
+      id: '2',
+      selected: false,
+    },
+  ];
   init: EditorComponent['init'] = {
     plugins: 'lists link image table code help wordcount',
   };
@@ -34,7 +51,7 @@ export class AddPostComponent {
 
   onSubmit(data: NgForm) {
     this.isLoading = true;
-    console.log("data: ", data.value)
+    console.log('data: ', data.value);
     // this._authSvc.loginUser(data.value).subscribe({
     //   next: (response: any) => {
     //     if (response) {
@@ -55,5 +72,9 @@ export class AddPostComponent {
     //     throw error;
     //   },
     // });
+  }
+
+  onCheckChange($event:any){
+
   }
 }

@@ -27,11 +27,6 @@ export const routes: Routes = [
     loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
   },
   {
-    path: 'posts',
-    // canActivate:[authGuard],
-    loadChildren: () => import('./post/post.module').then((m) => m.PostModule),
-  },
-  {
     path: '**',
     component: PageNotFoundComponent,
   },
