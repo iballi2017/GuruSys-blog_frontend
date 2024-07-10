@@ -1,0 +1,48 @@
+<!-- <p>posts works!</p> -->
+<div class="container mx-auto mt-8">
+  <a [routerLink]="['add-post']" routerLinkActive="router-link-active" class="inline-block mb-4 px-4 py-2 text-xs font-semibold text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-700">
+    Add New Post &nbsp; +
+  </a>
+  <table class="table-auto w-full text-sm">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="px-4 py-2 text-left">Post ID</th>
+        <th class="px-4 py-2 text-left">Title</th>
+        <th class="px-4 py-2 text-left">Date</th>
+        <th class="px-4 py-2 text-left"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="bg-white border-b" *ngFor="let post of posts; let i = index">
+        <td class="px-4 py-2">{{i+1}}</td>
+        <td class="px-4 py-2">{{post.title}}</td>
+        <td class="px-4 py-2">{{post.createdAt | date}}</td>
+        <td class="px-4 py-2 text-right">
+          <div class="inline-flex rounded-md shadow-sm" role="group">
+            <button (click)="editPost(post._id)" type="button" class="px-4 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-700">
+              Edit
+            </button>
+            <button (click)="onDeletePost(post._id)" type="button" class="px-4 py-2 text-xs font-medium text-red-900 bg-transparent border border-red-200 rounded-r-lg hover:bg-red-100 focus:z-10 focus:ring-2 focus:ring-red-500 focus:text-red-700">
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr>
+      <!-- <tr class="bg-gray-100 border-b">
+        <td class="px-4 py-2">2</td>
+        <td class="px-4 py-2">Second Post</td>
+        <td class="px-4 py-2">2024-07-09</td>
+        <td class="px-4 py-2 text-right">
+          <div class="inline-flex rounded-md shadow-sm" role="group">
+            <button type="button" class="px-4 py-2 text-xs font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-700">
+              Edit
+            </button>
+            <button type="button" class="px-4 py-2 text-xs font-medium text-red-900 bg-transparent border border-red-200 rounded-r-lg hover:bg-red-100 focus:z-10 focus:ring-2 focus:ring-red-500 focus:text-red-700">
+              Delete
+            </button>
+          </div>
+        </td>
+      </tr> -->
+    </tbody>
+  </table>
+</div>

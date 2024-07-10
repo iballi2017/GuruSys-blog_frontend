@@ -1,0 +1,35 @@
+<!-- <p>login works!</p> -->
+
+
+
+<h5 class="mb-2 text-xl font-bold tracking-tight">Login your account</h5>
+<p class="font-normal">Welcome!</p>
+
+<div class="h-4"></div>
+
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="mb-5">
+        <app-custom-control-input ngDefaultControl label="Your email" [type]="'email'" [id]="'email'"
+        name="email" ref="email" [(ngModel)]="model.email" [validationAttribute]="['required', 'email']"
+        [required]="true" [email]="true" [showAsterik]="false" errorMsg="Provide your email address"  />
+    </div>
+    <div class="mb-5">
+        <app-custom-control-input ngDefaultControl label="Your password" [type]="'password'" [id]="'password'"
+        name="password" ref="password" [(ngModel)]="model.password" [validationAttribute]="['required']"
+        [required]="true" [showAsterik]="false" errorMsg="Provide your password"  />
+    </div>
+    <div class="flex items-start mb-5">
+      <div class="flex items-center h-5">
+        <input id="rememberMe" name="rememberMe" #rememberMe [(ngModel)]="model.rememberMe" type="checkbox" value="" class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800" required />
+      </div>
+      <label for="rememberMe" class="ms-2 text-sm font-medium">Remember me</label>
+    </div>
+    <button type="submit"
+        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Login
+    </button>
+</form>
+<div class="h-2"></div>
+<p class="text-sm">
+    Don't hav an account? <a [routerLink]="['/auth/register']" class="text-blue-400 hover:text-blue-500 font-semibold">Register</a>
+</p>
