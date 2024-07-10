@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-post',
+  selector: 'app-toolbar',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './post.component.html',
-  styleUrl: './post.component.scss',
+  templateUrl: './toolbar.component.html',
+  styleUrl: './toolbar.component.scss',
 })
-export class PostComponent {}
+export class ToolbarComponent {}

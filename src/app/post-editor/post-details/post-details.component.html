@@ -1,0 +1,20 @@
+<!-- <p>post-details works!</p> -->
+
+<div class="max-w-7xl mx-auto">
+  <app-back-button/>
+  <div class="h-4"></div>
+  <form #addPostForm="ngForm" (ngSubmit)="onSubmit(addPostForm)">
+    <div class="mb-5">
+      <app-custom-control-input ngDefaultControl label="Post Title" [id]="'title'" name="title" [value]="model.title" ref="title" [(ngModel)]="model.title" [validationAttribute]="['required']" [required]="true" [showAsterik]="false" />
+    </div>
+
+    <div class="mb-5">
+      <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Body</label>
+
+      <editor [init]="init" name="body" #body="ngModel" [(ngModel)]="model.body" />
+    </div>
+    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      Update
+    </button>
+  </form>
+</div>

@@ -1,22 +1,14 @@
 <!-- <p>post-list works!</p> -->
 
-<ul class="grid grid-cols-12 gap-4">
-  <li class="col-span-12">
-    <h3 class="text-xl font-semibold mb-2">
-      <a [routerLink]="['5466']" class="hover:text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut nostrum in
-        vitae incidunt?
-      </a>
-    </h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod fugit aut dicta, earum eos rem consequuntur laborum
-      non perspiciatis? Soluta veniam nulla autem dicta hic sint, sequi pariatur officiis dolorem.</p>
-  </li>
-  <li class="col-span-12">
-    <h3 class="text-xl font-semibold mb-2">
-      <a [routerLink]="['899']" class="hover:text-white">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aut nostrum in
-        vitae incidunt?
-      </a>
-    </h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod fugit aut dicta, earum eos rem consequuntur laborum
-      non perspiciatis? Soluta veniam nulla autem dicta hic sint, sequi pariatur officiis dolorem.</p>
-  </li>
-</ul>
+<div class="bg-gray-100 p-6">
+  <div class="max-w-4xl mx-auto">
+    <h1 class="text-3xl font-bold mb-6">Post List</h1>
+    <div class="bg-white shadow-md rounded-lg overflow-hidden mb-6" *ngFor="let post of posts; let i = index">
+      <div class="p-6">
+        <h2 class="text-xl font-bold mb-2">{{post.title}}</h2>
+        <div class="text-gray-700 mb-4" [innerHTML]="post?.body | slice:0:200 "></div>
+        <a [routerLink]="[post.id]" class="text-indigo-600 hover:text-indigo-900">Read more</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 export class Post {
   constructor(
     title: string,
-    description: string,
+    body: string,
     author?: string,
     approved?: boolean,
     id?: string

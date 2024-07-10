@@ -47,10 +47,8 @@ export class RegisterComponent implements OnInit {
         },
         error: (error: Response) => {
           if (error instanceof BadInputError)
-            this.toastr.error('Registration failed!');
-          this.isLoading = false;
-          if (error instanceof AppError)
-            this.toastr.error(error.originalError.error.message);
+            data.form.setErrors({ isFormDataEror: true });
+          this.toastr.error('Registration failed!');
           this.isLoading = false;
           throw error;
         },

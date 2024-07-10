@@ -78,6 +78,25 @@ export class AuthService extends DataService {
     return user;
   }
 
+  get userRoles() {
+    let token = localStorage.getItem('token');
+    if (!token) return;
+
+    let decoded: any = jwtDecode(JSON.stringify(token));
+    let user = decoded.userInfo;
+    return user.roles;
+  }
+
+  isUserEditor(role: number) {
+    let token = localStorage.getItem('token');
+    if (!token) return;
+
+    let decoded: any = jwtDecode(JSON.stringify(token));
+    let user = decoded.userInfo;
+    let isEditor: number[] = user.roles.includes(role);
+    return isEditor;
+  }
+
   refreshToken() {
     return this.getData('refresh-token');
   }

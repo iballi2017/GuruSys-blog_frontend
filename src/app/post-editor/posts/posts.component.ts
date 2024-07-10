@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
 import { PostService } from '../../services/post/post.service';
+import { Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-post-list',
+  selector: 'app-posts',
   standalone: true,
-  imports: [CommonModule, RouterModule],
-  templateUrl: './post-list.component.html',
-  styleUrl: './post-list.component.scss',
+  imports: [RouterModule, CommonModule],
+  templateUrl: './posts.component.html',
+  styleUrl: './posts.component.scss',
 })
-export class PostListComponent implements OnInit {
+export class PostsComponent implements OnInit {
   posts!: any[];
   constructor(private _postSvc: PostService, private router: Router) {}
 
@@ -29,7 +29,18 @@ export class PostListComponent implements OnInit {
     });
   }
 
-  readPost(postId: string) {
-    this.router.navigate(['/editor/posts', postId]);
+  onDeletePost(postId: string) {
+    this._postSvc.delete(postId).subscribe({
+      next: (response: any) => {
+        if (response) {
+          console.log('response: ', response);
+          this.handle_getPosts();
+        }
+      },
+    });
+  }
+
+  editPost(postId: string){
+    this.router.navigate(['/editor/posts', postId])
   }
 }

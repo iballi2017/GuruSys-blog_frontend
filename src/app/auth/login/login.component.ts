@@ -7,6 +7,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { BadInputError } from '../../common/bad-input-error';
 import { AppError } from '../../common/app-error';
+import { NotFoundError } from '../../common/not-found-error';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent {
   ) {}
 
   onSubmit(data: NgForm) {
+    console.log('data: ', data.value);
     this.isLoading = true;
     this._authSvc.loginUser(data.value).subscribe({
       next: (response: any) => {
@@ -38,10 +40,8 @@ export class LoginComponent {
       },
       error: (error: Response) => {
         if (error instanceof BadInputError)
-          this.toastr.error('Authentication failed!');
-        this.isLoading = false;
-        if (error instanceof AppError)
-          this.toastr.error(error.originalError.error.message);
+          data.form.setErrors({ isFormDataEror: true });
+        this.toastr.error('Authentication failed!');
         this.isLoading = false;
         throw error;
       },

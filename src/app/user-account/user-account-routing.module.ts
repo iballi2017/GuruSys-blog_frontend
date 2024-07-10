@@ -21,11 +21,7 @@ const routes: Routes = [
         path: 'settings',
         component: SettingsComponent,
       },
-      {
-        path: 'posts',
-        // canActivate:[authGuard],
-        loadChildren: () => import('./post/post.module').then((m) => m.PostModule),
-      },
+      
     ],
   },
 ];

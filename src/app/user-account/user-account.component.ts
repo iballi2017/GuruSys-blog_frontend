@@ -10,5 +10,7 @@ import { AuthService } from '../services/auth/auth.service';
   styleUrl: './user-account.component.scss',
 })
 export class UserAccountComponent {
-  constructor(public _authSvc: AuthService) {}
+  constructor(public _authSvc: AuthService) {
+    console.log('userRoles: ', this._authSvc.userRoles);
+  }
 }
