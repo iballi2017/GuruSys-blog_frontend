@@ -14,7 +14,7 @@
                 <a [routerLink]="['/blog']" routerLinkActive="router-link-active">Stories</a>
             </li>
             <li class="w-full px-4 py-2 border-b border-gray-200 dark:border-gray-600">
-                <a [routerLink]="['/posts']" routerLinkActive="router-link-active">Posts</a>
+                <a [routerLink]="['posts']" routerLinkActive="router-link-active">Posts</a>
             </li>
             <li class="w-full px-4 py-2 rounded-b-lg cursor-pointer">
                 <a (click)="_authSvc.logoutUser()" class="text-red-400 hover:text-red-500">Logout</a>
