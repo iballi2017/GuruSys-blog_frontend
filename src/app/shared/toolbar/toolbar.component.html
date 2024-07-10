@@ -27,7 +27,7 @@
         <a [routerLink]="['/user-account']" routerLinkActive="active" class="text-sm font-semibold text-gray-500 dark:text-white hover:underline">
           {{_authSvc.currentUser.email}}
         </a>
-        <a (click)="_authSvc.logoutUser()" class="text-sm font-semibold text-red-600 dark:text-red-500 hover:underline">Logout</a>
+        <a (click)="_authSvc.logoutUser()" class="cursor-pointer text-sm font-semibold text-red-600 dark:text-red-500 hover:underline">Logout</a>
       </ng-container>
 
       <ng-container *ngIf="!this._authSvc.isLoggedIn()">
