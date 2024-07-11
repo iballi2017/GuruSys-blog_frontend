@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'user-account',
-    // canActivate:[authGuard],
+    canActivate:[authGuard],
     loadChildren: () =>
       import('./user-account/user-account.module').then(
         (m) => m.UserAccountModule
@@ -23,12 +23,11 @@ export const routes: Routes = [
   },
   {
     path: 'blog',
-    // canActivate:[authGuard],
     loadChildren: () => import('./blog/blog.module').then((m) => m.BlogModule),
   },
   {
     path: 'editor',
-    // canActivate:[authGuard],
+    canActivate:[authGuard],
     loadChildren: () => import('./post-editor/post-editor.module').then((m) => m. PostEditorModule),
   },
   {

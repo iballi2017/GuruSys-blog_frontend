@@ -6,7 +6,6 @@
 // regular style toast
 @import "ngx-toastr/toastr";
 
-
 label {
   &.required {
     display: flex;
@@ -19,7 +18,14 @@ label {
   }
 }
 
+.editor-content {
+  p,
+  ul {
+    margin-bottom: 1em;
+  }
 
-li{
-  list-style-type: disc;
+  ul {
+    padding-left: 1.5em;
+    list-style-type: disc;
+  }
 }

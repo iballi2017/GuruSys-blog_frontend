@@ -3,16 +3,38 @@
 
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
   <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
-    <a href="https://flowbite.com" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a [routerLink]="['/blog']" class="flex items-center space-x-3 rtl:space-x-reverse">
       <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">GuruSys</span>
     </a>
+    <!-- <div class="flex items-center space-x-6 rtl:space-x-reverse">
+      <a href="tel:5541251234" class="text-sm font-semibold text-gray-500 dark:text-white hover:underline">iballi2017</a>
+      <a [routerLink]="['/editor']" routerLinkActive="text-blue-600 dark:text-blue-500"  class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Editor</a>
+      <a [routerLink]="['/blog']" routerLinkActive="text-blue-600 dark:text-blue-500"  class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Blog</a>
+      <a [routerLink]="['/auth/login']" routerLinkActive="text-blue-600 dark:text-blue-500"  class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Login</a>
+      <a [routerLink]="['/auth/register']" routerLinkActive="text-blue-600 dark:text-blue-500"  class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Register</a>
+      <a href="#" class="text-sm font-semibold text-red-600 dark:text-red-500 hover:underline">Logout</a>
+    </div> -->
+
+
     <div class="flex items-center space-x-6 rtl:space-x-reverse">
-      <a href="tel:5541251234" class="text-sm  text-gray-500 dark:text-white hover:underline">iballi2017</a>
-      <a [routerLink]="['/editor']" routerLinkActive="router-link-active"  class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Editor</a>
-      <a [routerLink]="['/blog']" routerLinkActive="router-link-active"  class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Blog</a>
-      <a [routerLink]="['/auth/login']" routerLinkActive="router-link-active"  class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Login</a>
-      <a [routerLink]="['/auth/register']" routerLinkActive="router-link-active"  class="text-sm  text-blue-600 dark:text-blue-500 hover:underline">Register</a>
-      <a href="#" class="text-sm  text-red-600 dark:text-red-500 hover:underline">Logout</a>
+      <a [routerLink]="['/blog']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Blog</a>
+
+      <ng-container *ngIf="this._authSvc.isLoggedIn() && isEditor">
+        <a [routerLink]="['/editor']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Editor</a>
+      </ng-container>
+
+      <ng-container *ngIf="this._authSvc.isLoggedIn()">
+        <a [routerLink]="['/user-account']" routerLinkActive="active" class="text-sm font-semibold text-gray-500 dark:text-white hover:underline">
+          {{_authSvc.currentUser.email}}
+        </a>
+        <a (click)="_authSvc.logoutUser()" class="cursor-pointer text-sm font-semibold text-red-600 dark:text-red-500 hover:underline">Logout</a>
+      </ng-container>
+
+      <ng-container *ngIf="!this._authSvc.isLoggedIn()">
+        <a [routerLink]="['/auth/login']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Login</a>
+        <a [routerLink]="['/auth/register']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Register</a>
+      </ng-container>
+
     </div>
   </div>
 </nav>

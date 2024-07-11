@@ -16,7 +16,11 @@ export const appConfig: ApplicationConfig = {
       provide: ErrorHandler,
       useClass: AppErrorHandler,
     },
-    provideAnimations(), // required animations providers
-    provideToastr(),
+    provideAnimations(),
+    provideToastr({
+      timeOut: 2000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
 };
