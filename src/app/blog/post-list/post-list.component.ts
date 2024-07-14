@@ -13,6 +13,7 @@ import { buildQueryParams } from '../../helpers/buildQueryParams';
   styleUrl: './post-list.component.scss',
 })
 export class PostListComponent implements OnInit {
+  title: string = 'Stories';
   posts!: any[];
   public maxSize: number = 7;
   public config: PaginationInstance = {

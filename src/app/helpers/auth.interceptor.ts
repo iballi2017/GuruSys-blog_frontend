@@ -12,6 +12,7 @@ import {
   Observable,
   switchMap,
   take,
+  tap,
 } from 'rxjs';
 import { inject } from '@angular/core';
 
@@ -23,6 +24,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     setHeaders: { Authorization: `Bearer ${accessToken}` },
   });
   return next(newReq).pipe(
+    tap((data) => console.warn('data%%%: ', data)),
     catchError((error: any) => {
       console.log('error: ', error);
       if (error) {
