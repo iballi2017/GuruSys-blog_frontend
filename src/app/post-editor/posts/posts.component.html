@@ -4,17 +4,19 @@
     class="inline-block mb-4 px-4 py-2 text-xs font-semibold text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-500 focus:text-blue-700">
     Add New Post &nbsp; +
   </a>
+  
   <table class="table-auto w-full text-sm">
     <thead>
       <tr class="bg-gray-200">
-        <th class="px-4 py-2 text-left">Post ID</th>
+        <th class="px-4 py-2 text-left" class="w-12">S/N</th>
         <th class="px-4 py-2 text-left">Title</th>
         <th class="px-4 py-2 text-left">Date</th>
         <th class="px-4 py-2 text-left"></th>
       </tr>
     </thead>
     <tbody>
-      <tr class="bg-white border-b" *ngFor="let post of posts; let i = index">
+      <tr class="bg-white border-b"
+        *ngFor="let post of posts | paginate: config; let i = index">
         <td class="px-4 py-2">{{i+1}}</td>
         <td class="px-4 py-2">{{post.title}}</td>
         <td class="px-4 py-2">{{post.createdAt | date}}</td>
@@ -40,6 +42,10 @@
     </tbody>
   </table>
   <div class="flex justify-end mt-10">
+    <pagination-controls (pageChange)="onPageChange($event)"
+    [maxSize]="maxSize"></pagination-controls>
+  </div>
+  <!-- <div class="flex justify-end mt-10">
     <nav aria-label="Page navigation example">
       <ul class="inline-flex items-center -space-x-px">
         <li>
@@ -72,5 +78,5 @@
         </li>
       </ul>
     </nav>
-  </div>
+  </div> -->
 </div>

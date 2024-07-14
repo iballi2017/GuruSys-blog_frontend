@@ -16,11 +16,11 @@ export class AuthService extends DataService {
   }
 
   registerUser(payload: User) {
-    return this.create(payload, 'register');
+    return this.create(payload, '/register');
   }
 
   loginUser(payload: User) {
-    return this.create(payload, 'login').pipe(
+    return this.create(payload, '/login').pipe(
       map((response: any) => {
         if (response && response.accessToken && response.roles) {
           const token = response.accessToken;
@@ -34,7 +34,7 @@ export class AuthService extends DataService {
   }
 
   logoutUser() {
-    this.getData('logout').subscribe((response) => {
+    this.getData('/logout').subscribe((response) => {
       localStorage.clear();
       this.router.navigate(['/auth/login']);
     });

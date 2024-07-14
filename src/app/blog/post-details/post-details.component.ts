@@ -21,7 +21,7 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getPostDetails(postId: any) {
-    this._postSvc.getDataById(postId).subscribe({
+    this._postSvc.getDataById(`/${postId}`).subscribe({
       next: (response: any) => {
         if (response) {
           this.postDetails = response;
