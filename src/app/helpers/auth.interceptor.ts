@@ -26,7 +26,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error: any) => {
       console.log('error: ', error);
       if (error) {
-        handle401Error(req, next, authService);
+       return handle401Error(req, next, authService);
       }
       throw error;
     })
