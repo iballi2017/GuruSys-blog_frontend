@@ -32,10 +32,10 @@ export class PostDetailsComponent implements OnInit {
   init: EditorComponent['init'] = {
     plugins: 'lists link image table code help wordcount',
     selector: 'textarea', // Change this value according to your HTML
-    toolbar:
-      'bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat', // Add or remove buttons as needed
+    // toolbar:
+    //   'bold italic underline | alignleft aligncenter alignright | bullist numlist outdent indent | removeformat', // Add or remove buttons as needed
     // plugins: 'lists',  // List of plugins you need, adjust as necessary
-    menubar: false, // Set to false to remove the menubar
+    // menubar: false, // Set to false to remove the menubar
   };
   postId: string = '';
   constructor(
@@ -55,7 +55,7 @@ export class PostDetailsComponent implements OnInit {
   }
 
   getPostDetails(postId: any) {
-    this._postSvc.getDataById(postId).subscribe({
+    this._postSvc.getDataById(`/${postId}`).subscribe({
       next: (response: any) => {
         if (response) {
           this.model.title = response.title;

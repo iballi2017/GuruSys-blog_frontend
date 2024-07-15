@@ -13,6 +13,6 @@ export class PostService extends DataService {
   }
 
   updatePost(postId: string, payload: Post) {
-    return this.update(postId, payload);
+    return this.update(`/${postId}`, payload);
   }
 }

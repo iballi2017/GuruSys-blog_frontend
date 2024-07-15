@@ -14,7 +14,7 @@ export class DataService {
 
   create(payload: any, urlParam: string = '') {
     return this.http
-      .post(`${this.url}/${urlParam}`, payload, { withCredentials: true })
+      .post(`${this.url}${urlParam}`, payload, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
@@ -38,12 +38,12 @@ export class DataService {
 
   getData(urlParam: string = '') {
     return this.http
-      .get(`${this.url}/${urlParam}`, { withCredentials: true })
+      .get(`${this.url}${urlParam}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   getDataById(id: string) {
-    return this.http.get(`${this.url}/${id}`).pipe(
+    return this.http.get(`${this.url}${id}`).pipe(
       map((response: any) => {
         return response && response.result;
       }),
@@ -53,19 +53,19 @@ export class DataService {
 
   update(id: string, payload: any) {
     return this.http
-      .put(`${this.url}/${id}`, payload, { withCredentials: true })
+      .put(`${this.url}${id}`, payload, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   delete(id: string) {
     return this.http
-      .delete(`${this.url}/${id}`, { withCredentials: true })
+      .delete(`${this.url}${id}`, { withCredentials: true })
       .pipe(catchError(this.handleError));
   }
 
   getExtApi(urlParam: string = '') {
     return this.http
-      .get(`${this.url}/${urlParam}`)
+      .get(`${this.url}${urlParam}`)
       .pipe(catchError(this.handleError));
   }
 

@@ -1,14 +1,18 @@
 <!-- <p>post-list works!</p> -->
 
 <div class="bg-gray-100 p-6">
-  <div class="max-w-4xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6">Post List</h1>
-    <div class="bg-white shadow-md rounded-lg overflow-hidden mb-6" *ngFor="let post of posts; let i = index">
+  <div class="">
+    <h1 class="text-3xl font-bold mb-6">{{title}}</h1>
+    <div class="bg-white shadow-md rounded-lg overflow-hidden mb-6" *ngFor="let post of posts | paginate: config; let i = index">
       <div class="p-6">
         <h2 class="text-xl font-bold mb-2">{{post.title}}</h2>
         <div class="text-gray-700 mb-4" [innerHTML]="post?.body | slice:0:200 "></div>
-        <a [routerLink]="[post.id]" class="text-indigo-600 hover:text-indigo-900">Read more</a>
+        <a [routerLink]="[post._id]" class="text-indigo-600 hover:text-indigo-900">Read more</a>
       </div>
     </div>
   </div>
+</div>
+<div class="flex justify-end mt-10">
+  <pagination-controls (pageChange)="onPageChange($event)"
+  [maxSize]="maxSize"></pagination-controls>
 </div>
