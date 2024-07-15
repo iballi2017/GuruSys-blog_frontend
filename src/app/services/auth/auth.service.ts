@@ -97,6 +97,6 @@ export class AuthService extends DataService {
   }
 
   refreshToken() {
-    return this.getData('refresh-token');
+    return this.getData('/refresh-token');
   }
 }

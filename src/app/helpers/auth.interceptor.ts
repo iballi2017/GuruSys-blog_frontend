@@ -28,7 +28,7 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
     catchError((error: any) => {
       console.log('error: ', error);
       if (error) {
-        handle401Error(req, next, authService);
+       return handle401Error(req, next, authService);
       }
       throw error;
     })
@@ -49,6 +49,7 @@ function handle401Error(
 
     return authService.refreshToken().pipe(
       switchMap((new_token: any) => {
+        console.warn("new_token: ", new_token)
         localStorage.setItem('token', new_token.accessToken);
         localStorage.setItem('roles', JSON.stringify(new_token.roles));
         isRefreshing = false;
