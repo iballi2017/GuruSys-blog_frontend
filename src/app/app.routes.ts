@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'user-account',
-    canActivate:[authGuard],
+    canActivate: [authGuard],
     loadChildren: () =>
       import('./user-account/user-account.module').then(
         (m) => m.UserAccountModule
@@ -27,8 +27,16 @@ export const routes: Routes = [
   },
   {
     path: 'editor',
-    canActivate:[authGuard],
-    loadChildren: () => import('./post-editor/post-editor.module').then((m) => m. PostEditorModule),
+    canActivate: [authGuard],
+    loadChildren: () =>
+      import('./post-editor/post-editor.module').then(
+        (m) => m.PostEditorModule
+      ),
+  },
+  {
+    path: 'ngrx-todo',
+    loadChildren: () =>
+      import('./ngrx-todo/ngrx-todo.module').then((m) => m.NgrxTodoModule),
   },
   {
     path: '**',
