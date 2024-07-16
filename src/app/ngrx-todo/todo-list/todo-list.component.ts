@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../services/todo/todo.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-todo-list',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.scss',
 })
