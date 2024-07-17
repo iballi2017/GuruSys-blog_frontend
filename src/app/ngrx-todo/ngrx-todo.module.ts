@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { NgrxTodoRoutingModule } from './ngrx-todo-routing.module';
 
-
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     NgrxTodoRoutingModule
-  ]
+  ],
 })
-export class NgrxTodoModule { }
+export class NgrxTodoModule {}
