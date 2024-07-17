@@ -1,2 +1,13 @@
 <!-- <p>ngrx-todo works!</p> -->
+
+<div>
+  <h1>
+    {{ count$ | async }}
+  </h1>
+  <button (click)="onIncrement()">Increment</button>
+  <button (click)="onDecrement()">Decrement</button>
+  <button (click)="onReset()">Reset</button>
+</div>
+
+<hr class="my-4">
 <router-outlet />

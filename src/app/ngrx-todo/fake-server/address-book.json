@@ -1,0 +1,14 @@
+{
+    "address-book": [
+        {
+            "id": 1,
+            "name": "Ademola Johnson",
+            "phone": "09036377833",
+            "email": "ademolaofficial@gmail.com",
+            "addressLine": "20, Kolawole Shonibare close, off Coker road, Ilupeju",
+            "state": "Lagos",
+            "postalCode": "132903",
+            "country": "Nigeria"
+        }
+    ]
+}
