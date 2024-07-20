@@ -43,7 +43,7 @@ export class DataService {
   }
 
   getDataById(id: string) {
-    return this.http.get(`${this.url}${id}`).pipe(
+    return this.http.get(`${this.url}${id}`, { withCredentials: true }).pipe(
       map((response: any) => {
         return response && response.result;
       }),
