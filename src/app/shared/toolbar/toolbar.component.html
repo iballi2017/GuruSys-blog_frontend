@@ -19,7 +19,7 @@
     <div class="flex items-center space-x-6 rtl:space-x-reverse">
       <a [routerLink]="['/blog']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Blog</a>
       
-      <a [routerLink]="['/ngrx-todo']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Ngrx-todo</a>
+      <!-- <a [routerLink]="['/ngrx-todo']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Ngrx-todo</a> -->
 
       <ng-container *ngIf="this._authSvc.isLoggedIn() && isEditor">
         <a [routerLink]="['/editor']" routerLinkActive="active" class="text-sm font-semibold text-gray-900 dark:text-gray-500 hover:underline">Editor</a>
