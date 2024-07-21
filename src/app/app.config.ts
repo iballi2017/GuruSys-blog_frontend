@@ -8,21 +8,22 @@ import { provideToastr } from 'ngx-toastr';
 import { authInterceptor } from './helpers/auth.interceptor';
 import { AppErrorHandler } from './common/app-error-handler';
 import { provideStore } from '@ngrx/store';
+import { todoReducer } from './ngrx-todo/todo-store/todo.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
     provideHttpClient(withInterceptors([authInterceptor])),
     {
-        provide: ErrorHandler,
-        useClass: AppErrorHandler,
+      provide: ErrorHandler,
+      useClass: AppErrorHandler,
     },
     provideAnimations(),
     provideToastr({
-        timeOut: 2000,
-        positionClass: 'toast-bottom-right',
-        preventDuplicates: true,
+      timeOut: 2000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
     }),
-    provideStore(),
-],
+    provideStore({ todo: todoReducer }),
+  ],
 };

@@ -1,0 +1,35 @@
+<!-- <p>add-address works!</p> -->
+<div class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6">Add Address</h2>
+    <!-- {{addAddressForm.errors | json}} -->
+    <form #addAddressForm="ngForm" (ngSubmit)="onSubmit(addAddressForm)">
+      <div class="mb-4">
+        <app-custom-control-input ngDefaultControl label="Name" [type]="'text'" [id]="'name'" name="name" ref="name" [(ngModel)]="model.name" [required]="true" [errorMsg]="'User name is required'" />
+      </div>
+      <div class="mb-4">
+        <app-custom-control-input ngDefaultControl label="Phone" [type]="'text'" [id]="'phone'" name="phone" ref="phone" [(ngModel)]="model.phone" [required]="true" />
+      </div>
+      <div class="mb-4">
+        <app-custom-control-input ngDefaultControl label="Email" [type]="'email'" [id]="'email'" name="email" ref="email" [(ngModel)]="model.email" [required]="true" [email]="true" [validationAttribute]="['required', 'email']" />
+      </div>
+      <div class="mb-4">
+        <app-custom-control-input ngDefaultControl label="Street Address" [type]="'text'" [id]="'street'" name="street" ref="street" [(ngModel)]="model.street" [required]="true" [errorMsg]="'Provide street address line'" />
+      </div>
+      <div class="mb-4">
+        <app-custom-control-input ngDefaultControl label="City" [type]="'text'" [id]="'city'" name="city" ref="city" [(ngModel)]="model.city" [required]="true" />
+      </div>
+      <div class="mb-4">
+        <app-custom-control-input ngDefaultControl label="State" [type]="'text'" [id]="'state'" name="state" ref="state" [(ngModel)]="model.state" [required]="true" />
+      </div>
+      <div class="mb-4">
+        <app-custom-control-input ngDefaultControl label="ZIP Code" [type]="'text'" [id]="'zipCode'" name="zipCode" ref="zipCode" [(ngModel)]="model.zipCode" [required]="true" />
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

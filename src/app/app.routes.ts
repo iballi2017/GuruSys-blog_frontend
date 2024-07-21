@@ -39,6 +39,13 @@ export const routes: Routes = [
       import('./ngrx-todo/ngrx-todo.module').then((m) => m.NgrxTodoModule),
   },
   {
+    path: 'address-book',
+    loadChildren: () =>
+      import('./address-book/address-book.module').then(
+        (m) => m.AddressBookModule
+      ),
+  },
+  {
     path: '**',
     component: PageNotFoundComponent,
   },

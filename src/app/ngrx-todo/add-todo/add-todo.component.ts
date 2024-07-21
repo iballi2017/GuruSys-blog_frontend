@@ -13,11 +13,23 @@ import { TodoService } from '../../services/todo/todo.service';
   styleUrl: './add-todo.component.scss',
 })
 export class AddTodoComponent {
-  model:any = new Todo('', '');
+  model: any = new Todo('', '');
   isLoading: boolean = false;
   constructor(private _todoSvc: TodoService) {}
 
   onSubmit(data: NgForm) {
     console.log('data: ', data.value);
+    if (data.valid)
+      this._todoSvc.create(data.value).subscribe({
+        next: (response: any) => {
+          if (response) {
+            console.log('response: ', response);
+            data.reset();
+          }
+        },
+        error: (err: any) => {
+          console.log('Error: ', err);
+        },
+      });
   }
 }

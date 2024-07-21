@@ -1,0 +1,14 @@
+{
+  "address-book": [
+    {
+      "name": "Temi Alli",
+      "phone": "07065569711",
+      "email": "c@c.com",
+      "street": "10b, Segun Akinola street",
+      "city": "Agege",
+      "state": "Lagos",
+      "zipCode": "107232",
+      "id": 1
+    }
+  ]
+}
