@@ -34,18 +34,6 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'ngrx-todo',
-    loadChildren: () =>
-      import('./ngrx-todo/ngrx-todo.module').then((m) => m.NgrxTodoModule),
-  },
-  {
-    path: 'address-book',
-    loadChildren: () =>
-      import('./address-book/address-book.module').then(
-        (m) => m.AddressBookModule
-      ),
-  },
-  {
     path: '**',
     component: PageNotFoundComponent,
   },

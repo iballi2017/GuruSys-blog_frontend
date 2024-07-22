@@ -8,7 +8,6 @@ import { provideToastr } from 'ngx-toastr';
 import { authInterceptor } from './helpers/auth.interceptor';
 import { AppErrorHandler } from './common/app-error-handler';
 import { provideStore } from '@ngrx/store';
-import { todoReducer } from './ngrx-todo/todo-store/todo.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -24,6 +23,6 @@ export const appConfig: ApplicationConfig = {
       positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
-    provideStore({ todo: todoReducer }),
+    provideStore({}),
   ],
 };
